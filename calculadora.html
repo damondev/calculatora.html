@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+   <div class="calculadora">
+      <p id="tela"></p>
+    <button class="button" onclick="insert('1')">1</button>
+    <button class="button" onclick="insert('2')">2</button>
+    <button class="button" onclick="insert('3')">3</button>
+    <button class="button" onclick="insert('+')" >+</button> <br>
+    <button class="button" onclick="insert('4')" >4</button> 
+    <button class="button" onclick="insert('5')">5</button>
+    <button class="button" onclick="insert('6')">6</button>
+    <button class="button" onclick="insert('-')">-</button> <br>
+    <button class="button" onclick="insert('7')" >7</button>
+    <button class="button" onclick="insert('8')" >8</button>
+    <button class="button" onclick="insert('9')">9</button>
+    <button class="button" onclick="insert('*')" >x</button> <br>
+    <button class="button" onclick="insert('0')">0</button>
+    <button class="button" onclick="insert(',')" >,</button>
+    <button class="button" onclick="porcem('%')">%</button>
+    <button class="button" onclick="insert('/')">/</button> <br>
+    <button class="button" onclick="raiz('√')">√</button>
+    <button class="button" onclick="clean()">C</button>
+    <button class="button" onclick="alterna()">+|-</button>
+    <button class="button" onclick="calcular()">=</button> <br>
+
+       </div>
+   </div>
+</body>
+</html>
+ <script>
+    function insert(number)
+        {
+            var numero = document.getElementById('tela').innerHTML;
+            document.getElementById('tela').innerHTML = numero + number;
+        }
+    function clean(){
+        document.getElementById('tela').innerHTML = "";
+    }
+    function alterna(){
+        var numero = document.getElementById('tela').innerHTML;
+        if (numero == +numero){
+            document.getElementById('tela').innerHTML = -numero;
+        }if (numero == -numero){
+        document.getElementById('tela').innerHTML = +numero;
+        }
+        
+    }
+    function calcular()
+        {
+            var resultado = document.getElementById('tela').innerHTML;
+            if(resultado)
+            {
+                document.getElementById('tela').innerHTML = eval(resultado);
+            }
+            else
+            {
+                document.getElementById('tela').innerHTML = "Nada..."
+            }
+        }
+    function porcem()
+    {
+        var numero = document.getElementById('tela').innerHTML;
+         document.getElementById('tela').innerHTML = numero / 100;
+    }
+    function raiz()
+    {
+        var numero = document.getElementById('tela').innerHTML;
+        document.getElementById('tela').innerHTML = Math.sqrt(numero);
+    }
+ </script>
